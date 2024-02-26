@@ -89,7 +89,7 @@ function fetchDataAndPlot() {
     fetchJsonFromWeb(jsonUrl)
         .then(jsonData => {
             if (jsonData) {
-                playAlertSound(jsonData);
+                //playAlertSound(jsonData);
                 plotXrayData(jsonData);
             }
         })
