@@ -1,18 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <title>Solar Data Charts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar X-ray Flux Monitor</title>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
+    <!-- Add any additional meta tags or linked stylesheets here -->
+
+    <!-- Chart.js library -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <h1>Solar X-ray Flux Monitor</h1>
+        <h1>Solar Data Dashboard</h1>
+        <h2>Monitoring Solar Power Generation</h2>
     </header>
-    <div id="plot-container"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+    <section>
+        <h2>GOES X-Ray Flux</h2> 
+        <div id="xrayChart"></div>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
