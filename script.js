@@ -1,5 +1,3 @@
- 
-
 /**
  * In order to synchronize tooltips and crosshairs, override the
  * built-in events with handlers defined on the parent element.
@@ -117,8 +115,13 @@ document.addEventListener('DOMContentLoaded', function () {
           new Date(entry.time_tag).getTime(),
           entry.phi_gse
       ]);       
+      
+      // BY CHART //
+      //console.log('timeSeries1:', timeSeries1);
+      
+      var byAxisMax = Math.max(...timeSeries1.map(entry => entry[1])) + 2;
+      console.log("Maximum by Value:", byAxisMax);
 
-      // Create first chart with formatted time labels
       Highcharts.chart('chart1', {
           chart: {
             type: 'spline',
@@ -146,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
               }
           },
           yAxis:{
+              max: byAxisMax,
               gridLineWidth: 0.1
           },
           plotOptions: {
@@ -177,7 +181,15 @@ document.addEventListener('DOMContentLoaded', function () {
           }
       });
 
-      // Create second chart with formatted time labels
+      // BZ CHART //
+
+      var bzAxisMax = 30;
+      var bzAxisMin = -30;
+
+      var lowerColor = 'red';
+      var middleColor = '#212121FF';
+      var upperColor = 'green'
+
       Highcharts.chart('chart2', {
           chart: {
             type: 'spline',
@@ -203,6 +215,8 @@ document.addEventListener('DOMContentLoaded', function () {
               }
           },
           yAxis:{
+              max: bzAxisMax,
+              min: bzAxisMin,
               gridLineWidth: 0.1
           },
           plotOptions: {
@@ -215,12 +229,10 @@ document.addEventListener('DOMContentLoaded', function () {
                       y2: 1
                       },
                       stops: [
-                      [0, '#006e1d'],
-                      [.5, '#212121FF'],
-                      [1, '#9c0202']
+                      [0, upperColor],
+                      [.5, middleColor],
+                      [1, lowerColor]
                       ],
-                      'min': -20,
-                      'max': 20
 
                   }
               }
